@@ -1,0 +1,166 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:background="@drawable/border"
+    android:orientation="vertical"
+    android:isScrollContainer="true"
+    android:elevation="25dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/favourites_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:elevation="25dp"
+            android:visibility="invisible"
+            android:src="@android:drawable/btn_star_big_off"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintVertical_bias="0.0"
+            />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circular_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_details_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/movie_poster"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:layout_centerInParent="true"
+                android:padding="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/movie_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Mission Impossible: Ghost Protocol"
+                android:textAlignment="center"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/details_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/movie_poster" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/details_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/movie_plot"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/movie_title"
+                app:layout_constraintHorizontal_chainStyle="packed">
+
+                    <TextView
+                        android:id="@+id/released_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Released : "
+                        android:textAlignment="center"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/release_year"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/details_layout"
+                        />
+
+                    <TextView
+                        android:id="@+id/release_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="15dp"
+                        android:text="22 May 1996"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/imdb_rating_title"
+                        app:layout_constraintStart_toEndOf="@id/released_title"
+                        app:layout_constraintTop_toTopOf="@+id/details_layout"
+                        />
+
+                    <TextView
+                        android:id="@+id/imdb_rating_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="imdbRating : "
+                        android:textAlignment="center"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/imdbRating"
+                        app:layout_constraintStart_toEndOf="@id/release_year"
+                        app:layout_constraintTop_toTopOf="@+id/details_layout"
+                        />
+
+                    <TextView
+                        android:id="@+id/imdbRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="7.1 / 10"
+                        android:textSize="15dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/imdb_rating_title"
+                        app:layout_constraintTop_toTopOf="@+id/details_layout"
+                        />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/movie_plot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_margin="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/details_layout"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
